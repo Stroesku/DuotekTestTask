@@ -4,16 +4,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import space.stroesku.duotektask.User
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.recyclerview.widget.RecyclerView
-import de.hdodenhof.circleimageview.CircleImageView
-import java.util.ArrayList
 
 
-    class RecyclerAdapter(private val users: MutableList<UserModel>) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
+
+    class RecyclerAdapter(val users: MutableList<User>) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
 
         inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val layout: RelativeLayout = view.findViewById(R.id.parentRelative)
