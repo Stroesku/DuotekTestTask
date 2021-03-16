@@ -1,5 +1,6 @@
 package space.stroesku.duotektask.repo
 
+import androidx.lifecycle.MutableLiveData
 import space.stroesku.duotektask.User
 import javax.inject.Singleton
 import kotlin.collections.MutableList
@@ -8,8 +9,16 @@ import kotlin.collections.MutableList
 class Repository {
     private val users = mutableListOf<User>()
 
+    fun getLiveList():MutableLiveData<MutableList<User>>{
+        getList()
+        var mUsers: MutableLiveData<MutableList<User>> = MutableLiveData()
+        mUsers.value = users
+        return mUsers
+    }
 
-    fun getList(): MutableList<User> {
+
+
+    fun getList(){
         users.add(User("Виктор", "Строеску","Люблю писать код"))
         users.add(User("Александр", "Строеску","Люблю бездельничать"))
         users.add(User("Никита", "Кабанов","Люблю умничать"))
@@ -31,7 +40,5 @@ class Repository {
         users.add(User("ываф", "Кабанов","Люблю умничать"))
         users.add(User("Колян", "Кабанов","Люблю умничать"))
         users.add(User("Колян", "Кабанов","Люблю умничать"))
-        return users
     }
-
 }

@@ -3,12 +3,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import space.stroesku.duotektask.User
 import android.widget.RelativeLayout
 import android.widget.TextView
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintSet
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 
 

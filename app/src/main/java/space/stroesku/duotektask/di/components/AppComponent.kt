@@ -3,6 +3,7 @@ package space.stroesku.duotektask.di.components
 import dagger.Component
 import space.stroesku.duotektask.MainActivity
 import space.stroesku.duotektask.di.modules.RepoModule
+import space.stroesku.duotektask.viewmodel.MainViewModel
 import javax.inject.Singleton
 
 @Component(modules = [
@@ -12,6 +13,6 @@ import javax.inject.Singleton
 
 @Singleton
 interface AppComponent {
- fun inject(mainActivity: MainActivity){
- }
+ fun inject(mainViewModel:MainViewModel)
+
 }
