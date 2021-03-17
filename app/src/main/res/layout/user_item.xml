@@ -18,27 +18,15 @@
             android:background="@color/item_blue_background">
 
             <TextView
-                android:id="@+id/userFirstName"
+                android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:textSize="@dimen/name_size"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginStart="10dp"
                 android:text="Виктор"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:id="@+id/userLastName"
-                android:layout_toEndOf="@id/userFirstName"
-                android:layout_marginEnd="7dp"
-                android:textSize="@dimen/name_size"
-                android:text="Строеску"
-                android:layout_marginTop="2dp"
-                />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
