@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/margin_default">
+    android:layout_marginTop="@dimen/margin_default"
+    android:layout_marginStart="@dimen/margin_default"
+    android:layout_marginEnd="@dimen/margin_default">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -12,36 +14,31 @@
         <RelativeLayout
             android:id="@+id/parentRelative"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/margin_default"
+            android:layout_height="40dp"
             android:background="@color/item_blue_background">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/icon"
-                android:layout_width="@dimen/radius"
-                android:layout_height="@dimen/radius"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginEnd="@dimen/margin_default"
-                />
 
             <TextView
                 android:id="@+id/userFirstName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_toEndOf="@id/icon"
+
                 android:textSize="@dimen/name_size"
-                android:layout_marginEnd="10dp"/>
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="10dp"
+                android:text="Виктор"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:id="@+id/userLastName"
                 android:layout_toEndOf="@id/userFirstName"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="10dp"
-                android:textSize="@dimen/name_size"/>
+                android:layout_marginEnd="7dp"
+                android:textSize="@dimen/name_size"
+                android:text="Строеску"
+                android:layout_marginTop="2dp"
+                />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

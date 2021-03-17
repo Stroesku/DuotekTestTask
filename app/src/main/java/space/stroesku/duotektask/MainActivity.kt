@@ -2,15 +2,11 @@ package space.stroesku.duotektask
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import space.stroesku.duotektask.repo.Repository
 import space.stroesku.duotektask.viewmodel.MainViewModel
-import java.util.Observer
-import javax.inject.Inject
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +27,5 @@ class MainActivity : AppCompatActivity() {
         manager.orientation = LinearLayoutManager.VERTICAL
         recycleView.layoutManager = manager
         recycleView.adapter = adapter
-
     }
 }

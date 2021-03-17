@@ -1,7 +1,6 @@
 package space.stroesku.duotektask.repo
 
 import androidx.lifecycle.MutableLiveData
-import space.stroesku.duotektask.User
 import javax.inject.Singleton
 import kotlin.collections.MutableList
 
@@ -19,6 +18,7 @@ class Repository {
 
 
     fun getList(){
+        users.clear()
         users.add(User("Виктор", "Строеску","Люблю писать код"))
         users.add(User("Александр", "Строеску","Люблю бездельничать"))
         users.add(User("Никита", "Кабанов","Люблю умничать"))
