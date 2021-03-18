@@ -3,6 +3,7 @@ package space.stroesku.duotektask.model.data.repo
 
 import retrofit2.Response
 import space.stroesku.duotektask.api.RetrofitInstance
+import space.stroesku.duotektask.model.data.Root
 import space.stroesku.duotektask.model.data.tables.Users
 import javax.inject.Singleton
 
@@ -10,27 +11,19 @@ import javax.inject.Singleton
 @Singleton
 class Repository {
 //???????????????????????????????????
-    val readAllData:  Response<List<Users>>
+    //val readAllData:  Response<List<Users>>
 
- suspend fun getUsers(): Response<List<Users>>{
-    return RetrofitInstance.api.getUsers()
- }
+    suspend fun getUsers(): List<Root> {
+        val response = RetrofitInstance.api.getUsers()
+        return if (response.isSuccessful) {
+            response.body() ?: emptyList()
+        } else {
+            emptyList()
+        }
+    }
 //???????????????????????????????????
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //    fun getList(){
