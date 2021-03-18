@@ -1,22 +1,27 @@
 package space.stroesku.duotektask
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import space.stroesku.duotektask.model.Users
 
 
-class RecyclerAdapter(private val users: ArrayList<Users>, val context:Context) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
+class RecyclerAdapter(private val users: MutableList<Users>?,
+                      private val context:Context) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
     /**
      * A ViewHolder describes an item view and metadata about its place within the RecyclerView.
      */
         inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val layout: RelativeLayout = view.findViewById(R.id.parentRelative)
+            val id: TextView = view.findViewById<View>(R.id.userID) as TextView
             val name: TextView = view.findViewById<View>(R.id.userName) as TextView
+            val phone: TextView = view.findViewById<View>(R.id.userPhone) as TextView
 
         }
     /**
@@ -41,11 +46,18 @@ class RecyclerAdapter(private val users: ArrayList<Users>, val context:Context) 
      * layout file.
      */
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-            val userItem = users[position]
-
+            val userItem = users?.get(position)
+        if (userItem != null) {
+            holder.id.text = userItem.id.toString()+"."
             holder.name.text = userItem.name
+            holder.phone.text = userItem.phone
+        }
             holder.layout.setOnClickListener {
-                Log.i("TAG","click to$userItem")
+                val contextRV =holder.layout.context
+                val intent = Intent(contextRV, ProfileActivity()::class.java).apply {
+                    putExtra("USER", userItem.toString())
+                }
+                contextRV.startActivity(intent)
             }
 
         }
@@ -54,6 +66,6 @@ class RecyclerAdapter(private val users: ArrayList<Users>, val context:Context) 
      * Gets the number of items in the list
      */
         override fun getItemCount(): Int {
-            return users.size
+            return users!!.size
         }
     }

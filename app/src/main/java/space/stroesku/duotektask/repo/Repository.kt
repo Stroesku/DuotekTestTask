@@ -1,6 +1,7 @@
 package space.stroesku.duotektask.repo
 
 
+import retrofit2.Response
 import space.stroesku.duotektask.api.RetrofitInstance
 import space.stroesku.duotektask.model.Users
 import javax.inject.Singleton
@@ -8,7 +9,7 @@ import javax.inject.Singleton
 
 @Singleton
 class Repository {
- suspend fun getUsers(): List<Users>{
+ suspend fun getUsers(): Response<List<Users>>{
     return RetrofitInstance.api.getUsers()
  }
 }

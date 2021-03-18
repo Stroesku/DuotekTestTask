@@ -3,6 +3,7 @@ package space.stroesku.duotektask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var repository: Repository
     private lateinit var viewModel: MainViewModel
-
+    var users: MutableList<Users>? = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
@@ -40,25 +41,31 @@ class MainActivity : AppCompatActivity() {
             App.appComponent.inject(viewModel)
             viewModel.getUsers()
             viewModel.myResponse.observe(this, Observer { response ->
-                val list = response
-                Log.d("Response", list.toString())
+                if(response.isSuccessful){
+                    response.body()?.let { users!!.addAll(it) }
+                } else {
+                    Toast.makeText(this,"error get data ${response.errorBody().toString()}", Toast.LENGTH_LONG).show()
+                    Log.d("Response", "ERROR GET DATA FROM NETWORK ${response.errorBody().toString()}")
+                }
+
+
             })
 
 
-            //initRecycler()
+            initRecycler()
             // Instance of users list using the data model class.
 
         }
-//    private fun initRecycler() {
-//        // Adapter class is initialized and list is passed in the param.
-//        val adapter = RecyclerAdapter(usersList, this)
-//        // Set the LayoutManager that this RecyclerView will use.
-//        val manager = LinearLayoutManager(applicationContext)
-//        manager.orientation = LinearLayoutManager.VERTICAL
-//        recycleView.layoutManager = manager
-//        // adapter instance is set to the recyclerview to inflate the items.
-//        recycleView.adapter = adapter
-//    }
+    private fun initRecycler() {
+        // Adapter class is initialized and list is passed in the param.
+        val adapter = RecyclerAdapter(users, this)
+        // Set the LayoutManager that this RecyclerView will use.
+        val manager = LinearLayoutManager(applicationContext)
+        manager.orientation = LinearLayoutManager.VERTICAL
+        recycleView.layoutManager = manager
+        // adapter instance is set to the recyclerview to inflate the items.
+        recycleView.adapter = adapter
+    }
 
 
 
