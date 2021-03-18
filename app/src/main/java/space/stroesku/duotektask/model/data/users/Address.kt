@@ -1,7 +1,8 @@
-package space.stroesku.duotektask.model.data
+package space.stroesku.duotektask.model.data.users
 
 
 import com.google.gson.annotations.SerializedName
+import space.stroesku.duotektask.model.data.users.Geo
 
 data class Address(
     @SerializedName("city")

@@ -1,4 +1,4 @@
-package space.stroesku.duotektask.model.data
+package space.stroesku.duotektask.model.data.users
 
 
 import com.google.gson.annotations.SerializedName

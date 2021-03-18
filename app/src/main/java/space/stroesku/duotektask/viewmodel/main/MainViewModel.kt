@@ -1,19 +1,17 @@
-package space.stroesku.duotektask.viewmodel
+package space.stroesku.duotektask.viewmodel.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import retrofit2.Response
-import space.stroesku.duotektask.model.data.tables.Users
+import space.stroesku.duotektask.model.data.users.User
 import space.stroesku.duotektask.model.data.repo.Repository
-
 import javax.inject.Inject
 
 class MainViewModel : ViewModel(){
     @Inject
     lateinit var repository: Repository
-    val myResponse: MutableLiveData<Response<List<Users>>> = MutableLiveData()
+    val myResponse: MutableLiveData<List<User>> = MutableLiveData()
 
     fun getUsers(){
         viewModelScope.launch {

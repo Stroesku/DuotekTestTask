@@ -2,25 +2,22 @@ package space.stroesku.duotektask
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import space.stroesku.duotektask.model.data.tables.Users
+import space.stroesku.duotektask.model.data.users.User
 import space.stroesku.duotektask.model.data.repo.Repository
-import space.stroesku.duotektask.viewmodel.MainViewModel
-import space.stroesku.duotektask.viewmodel.MainViewModelFactory
+import space.stroesku.duotektask.viewmodel.main.MainViewModel
+import space.stroesku.duotektask.viewmodel.main.MainViewModelFactory
 import javax.inject.Inject
 
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var repository: Repository
+
     private lateinit var viewModel: MainViewModel
-    var users: MutableList<Users>? = mutableListOf()
+    var users: MutableList<User>? = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
@@ -30,12 +27,7 @@ class MainActivity : AppCompatActivity() {
             App.appComponent.inject(viewModel)
             viewModel.getUsers()
             viewModel.myResponse.observe(this, Observer { response ->
-                if(response.isSuccessful){
-                    response.body()?.let { users!!.addAll(it) }
-                } else {
-                    Toast.makeText(this,"error get data ${response.errorBody().toString()}", Toast.LENGTH_LONG).show()
-                    Log.d("Response", "ERROR GET DATA FROM NETWORK ${response.errorBody().toString()}")
-                }
+                users?.addAll(response)
             })
 
         initAdapter()

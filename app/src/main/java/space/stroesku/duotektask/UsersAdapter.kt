@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import space.stroesku.duotektask.model.data.tables.Users
+import space.stroesku.duotektask.model.data.users.User
 
 
-class UsersAdapter(private val users: MutableList<Users>?,
+class UsersAdapter(private val users: MutableList<User>?,
                    private val context:Context) : RecyclerView.Adapter<UsersAdapter.MyViewHolder>() {
     /**
      * A ViewHolder describes an item view and metadata about its place within the RecyclerView.
@@ -46,14 +46,19 @@ class UsersAdapter(private val users: MutableList<Users>?,
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
             val userItem = users?.get(position)
         if (userItem != null) {
-            holder.id.text = userItem.id.toString()+"."
+            holder.id.text = "${userItem.id}."
             holder.name.text = userItem.name
             holder.phone.text = userItem.phone
         }
             holder.layout.setOnClickListener {
                 val contextRV =holder.layout.context
                 val intent = Intent(contextRV, ProfileActivity()::class.java).apply {
-                    putExtra("USER", userItem.toString())
+                    putExtra("id", userItem?.id)
+                    putExtra("name", userItem?.name)
+                    putExtra("username", userItem?.username)
+                    putExtra("email", userItem?.email)
+                    putExtra("phone", userItem?.phone)
+                    putExtra("website", userItem?.website)
                 }
                 contextRV.startActivity(intent)
             }
