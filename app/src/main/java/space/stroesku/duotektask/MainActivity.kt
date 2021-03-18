@@ -7,10 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import space.stroesku.duotektask.model.data.users.User
-import space.stroesku.duotektask.model.data.repo.Repository
 import space.stroesku.duotektask.viewmodel.main.MainViewModel
-import space.stroesku.duotektask.viewmodel.main.MainViewModelFactory
-import javax.inject.Inject
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,8 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
 
-            val viewModelFactory = MainViewModelFactory()
-            viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+
+            viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
             App.appComponent.inject(viewModel)
             viewModel.getUsers()
             viewModel.myResponse.observe(this, Observer { response ->
