@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import retrofit2.Response
-import space.stroesku.duotektask.model.Users
-import space.stroesku.duotektask.repo.Repository
+import space.stroesku.duotektask.model.data.tables.Users
+import space.stroesku.duotektask.model.data.repo.Repository
 
 import javax.inject.Inject
 

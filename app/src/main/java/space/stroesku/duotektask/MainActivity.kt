@@ -7,22 +7,11 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.androidnetworking.AndroidNetworking
-import com.androidnetworking.error.ANError
-import com.androidnetworking.interfaces.ParsedRequestListener
 import kotlinx.android.synthetic.main.activity_main.*
-import org.json.JSONException
-import org.json.JSONObject
-import space.stroesku.duotektask.model.Users
-import space.stroesku.duotektask.model.UserDataItem
-import space.stroesku.duotektask.repo.Repository
+import space.stroesku.duotektask.model.data.tables.Users
+import space.stroesku.duotektask.model.data.repo.Repository
 import space.stroesku.duotektask.viewmodel.MainViewModel
 import space.stroesku.duotektask.viewmodel.MainViewModelFactory
-//import space.stroesku.duotektask.viewmodel.MainViewModel
-import java.io.IOException
-import java.net.HttpURLConnection
-import java.net.URL
-import java.nio.charset.Charset
 import javax.inject.Inject
 
 
@@ -47,18 +36,14 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this,"error get data ${response.errorBody().toString()}", Toast.LENGTH_LONG).show()
                     Log.d("Response", "ERROR GET DATA FROM NETWORK ${response.errorBody().toString()}")
                 }
-
-
             })
 
-
-            initRecycler()
-            // Instance of users list using the data model class.
+        initAdapter()
 
         }
-    private fun initRecycler() {
+    private fun initAdapter() {
         // Adapter class is initialized and list is passed in the param.
-        val adapter = RecyclerAdapter(users, this)
+        val adapter = UsersAdapter(users, this)
         // Set the LayoutManager that this RecyclerView will use.
         val manager = LinearLayoutManager(applicationContext)
         manager.orientation = LinearLayoutManager.VERTICAL

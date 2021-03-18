@@ -1,19 +1,17 @@
 package space.stroesku.duotektask
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import space.stroesku.duotektask.model.Users
+import space.stroesku.duotektask.model.data.tables.Users
 
 
-class RecyclerAdapter(private val users: MutableList<Users>?,
-                      private val context:Context) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
+class UsersAdapter(private val users: MutableList<Users>?,
+                   private val context:Context) : RecyclerView.Adapter<UsersAdapter.MyViewHolder>() {
     /**
      * A ViewHolder describes an item view and metadata about its place within the RecyclerView.
      */

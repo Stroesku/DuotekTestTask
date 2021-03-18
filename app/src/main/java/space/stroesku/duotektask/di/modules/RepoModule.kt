@@ -1,9 +1,8 @@
 package space.stroesku.duotektask.di.modules
 
-import android.content.Context
 import dagger.Module
 import dagger.Provides
-import space.stroesku.duotektask.repo.Repository
+import space.stroesku.duotektask.model.data.repo.Repository
 import javax.inject.Singleton
 
 @Module
