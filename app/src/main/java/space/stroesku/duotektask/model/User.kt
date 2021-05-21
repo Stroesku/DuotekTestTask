@@ -1,14 +1,13 @@
-package space.stroesku.duotektask.model.data.users
+package space.stroesku.duotektask.model
 
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 @Entity
 data class User(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = false)
     val id:Int = 0,
     val name: String = "",
     val username: String = "",

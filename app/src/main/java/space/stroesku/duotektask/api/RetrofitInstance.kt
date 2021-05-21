@@ -2,7 +2,7 @@ package space.stroesku.duotektask.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import space.stroesku.duotektask.utils.Constants.Companion.BASE_URL_USERS
+import space.stroesku.duotektask.utils.Utils.Companion.BASE_URL_USERS
 
 object RetrofitInstance {
 

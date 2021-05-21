@@ -3,9 +3,9 @@ package space.stroesku.duotektask.api
 
 import retrofit2.Response
 import retrofit2.http.GET
-import space.stroesku.duotektask.model.data.albums.Album
-import space.stroesku.duotektask.model.data.albums.photos.Photo
-import space.stroesku.duotektask.model.data.users.User
+import space.stroesku.duotektask.model.Album
+import space.stroesku.duotektask.model.Photo
+import space.stroesku.duotektask.model.User
 
 interface SimpleApi {
     @GET("/users")

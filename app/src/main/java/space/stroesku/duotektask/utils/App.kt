@@ -1,15 +1,11 @@
-package space.stroesku.duotektask
+package space.stroesku.duotektask.utils
 
 import android.app.Application
 import space.stroesku.duotektask.di.modules.RepoModule
 import space.stroesku.duotektask.di.components.AppComponent
 import space.stroesku.duotektask.di.components.DaggerAppComponent
-import javax.inject.Inject
 
 class App : Application() {
-//    @Inject
-//    lateinit var appComponent: AppComponent
-    
 
     companion object {
         /**
@@ -17,12 +13,15 @@ class App : Application() {
          */
         lateinit var appComponent: AppComponent
             private set
+
+        lateinit var appContext: Application
     }
 
     override fun onCreate() {
         super.onCreate()
-             appComponent = DaggerAppComponent.builder()
+        appComponent = DaggerAppComponent.builder()
             .repoModule(RepoModule())
             .build()
+        appContext = applicationContext as Application
     }
 }

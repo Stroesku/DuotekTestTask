@@ -5,14 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
-import com.bumptech.glide.Glide
-import com.bumptech.glide.Glide.with
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.single_view.view.*
 import space.stroesku.duotektask.R
-import space.stroesku.duotektask.model.data.albums.photos.Photo
+import space.stroesku.duotektask.model.Photo
+import space.stroesku.duotektask.ui.adapter.diff.PhotoListDiff
 
 class PhotoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

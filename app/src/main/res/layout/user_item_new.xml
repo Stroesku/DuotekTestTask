@@ -5,22 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_marginVertical="@dimen/card_in_layout_header_top_padding"
-    android:layout_marginHorizontal="@dimen/card_in_layout_header_top_padding"
+    android:layout_margin="@dimen/default_margin"
     card_view:cardCornerRadius="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/card_in_layout_header_top_padding"
+        android:layout_margin="@dimen/default_margin"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/album_name"
+            android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/card_header_font"
-            tools:text="Название альбома" />
+            tools:text="Имя" />
+
+        <TextView
+            android:id="@+id/user_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/card_text_font"
+            tools:text="e-mail" />
+
+        <TextView
+            android:id="@+id/user_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/card_text_font"
+            tools:text="+8968 00000000" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

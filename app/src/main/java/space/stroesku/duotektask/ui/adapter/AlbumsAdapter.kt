@@ -7,11 +7,12 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.album_item.view.*
 import space.stroesku.duotektask.R
-import space.stroesku.duotektask.model.data.albums.Album
-import space.stroesku.duotektask.ui.Interaction
+import space.stroesku.duotektask.model.Album
+import space.stroesku.duotektask.ui.adapter.callbacks.AlbumCallback
+import space.stroesku.duotektask.ui.adapter.diff.AlbumsItemDiff
 
 
-class AlbumsAdapter(private val interaction: Interaction) :
+class AlbumsAdapter(private val albumCallback: AlbumCallback) :
     RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
 
     private val diffCallback = AlbumsItemDiff()
@@ -21,7 +22,7 @@ class AlbumsAdapter(private val interaction: Interaction) :
         return AlbumViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.album_item, parent, false),
-            interaction
+            albumCallback
         )
     }
 
@@ -37,12 +38,12 @@ class AlbumsAdapter(private val interaction: Interaction) :
         differ.submitList(list)
     }
 
-    class AlbumViewHolder(itemView: View, private val interaction: Interaction?) :
+    class AlbumViewHolder(itemView: View, private val albumCallback: AlbumCallback?) :
         RecyclerView.ViewHolder(itemView) {
 
         fun bind(albumItem: Album) = with(itemView) {
             itemView.setOnClickListener {
-                interaction?.onItemSelected(adapterPosition, albumItem)
+                albumCallback?.onAlbumSelected(adapterPosition, albumItem)
             }
             itemView.album_name.text = albumItem.title
         }
