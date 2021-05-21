@@ -1,4 +1,4 @@
-package space.stroesku.duotektask
+package space.stroesku.duotektask.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,8 +6,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
+import space.stroesku.duotektask.App
+import space.stroesku.duotektask.R
+import space.stroesku.duotektask.ui.adapter.UsersAdapter
 import space.stroesku.duotektask.model.data.users.User
-import space.stroesku.duotektask.viewmodel.main.MainViewModel
+import space.stroesku.duotektask.viewmodel.MainViewModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
-
 
             viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
             App.appComponent.inject(viewModel)

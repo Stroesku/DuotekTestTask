@@ -1,4 +1,4 @@
-package space.stroesku.duotektask.viewmodel.main
+package space.stroesku.duotektask.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

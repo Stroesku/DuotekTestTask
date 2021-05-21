@@ -4,6 +4,8 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
 @Entity
 data class User(
     @PrimaryKey
@@ -17,7 +19,7 @@ data class User(
     val website: String = "",
     @Embedded(prefix ="user_")
     val company: Company = Company("","","")
-)
+): Serializable
 
 data class Address(
     val city: String,
@@ -26,16 +28,16 @@ data class Address(
     val zipcode: String,
     @Embedded(prefix = "address_")
     val geo: Geo
-)
+): Serializable
 
 data class Geo(
     val lat: String,
     val lng: String
-)
+): Serializable
 
 data class Company(
     val bs: String,
     val catchPhrase: String,
     val name: String
-)
+): Serializable
 
