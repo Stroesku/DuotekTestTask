@@ -12,8 +12,8 @@ import space.stroesku.duotektask.ui.adapter.callbacks.AlbumCallback
 import space.stroesku.duotektask.ui.adapter.diff.AlbumsItemDiff
 
 
-class AlbumsAdapter(private val albumCallback: AlbumCallback) :
-    RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
+class AlbumListAdapter(private val albumCallback: AlbumCallback) :
+    RecyclerView.Adapter<AlbumListAdapter.AlbumViewHolder>() {
 
     private val diffCallback = AlbumsItemDiff()
     private val differ = AsyncListDiffer(this, diffCallback)

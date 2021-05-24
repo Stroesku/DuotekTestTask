@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.user_profile.*
-import space.stroesku.duotektask.ui.adapter.AlbumsAdapter
+import space.stroesku.duotektask.ui.adapter.AlbumListAdapter
 import space.stroesku.duotektask.utils.App
 import space.stroesku.duotektask.R
 import space.stroesku.duotektask.model.Album
@@ -21,7 +21,7 @@ class ProfileActivity : AppCompatActivity(), AlbumCallback {
 
 
     private lateinit var albumRecycler: RecyclerView
-    private lateinit var albumAdapter: AlbumsAdapter
+    private lateinit var albumAdapter: AlbumListAdapter
 
     private val viewModel by lazy {
         ViewModelProvider(
@@ -76,7 +76,7 @@ class ProfileActivity : AppCompatActivity(), AlbumCallback {
         albumRecycler = recycler_album
         albumRecycler.apply {
             layoutManager = LinearLayoutManager(this@ProfileActivity)
-            albumAdapter = AlbumsAdapter(this@ProfileActivity)
+            albumAdapter = AlbumListAdapter(this@ProfileActivity)
             adapter = albumAdapter
         }
         albumAdapter.submitList(albums)
